@@ -1,2 +1,3 @@
-# crud_v_array
-crud versión array
+# Ejercicio crud versión Array
+
+## Versión array de una aplicación de gestión
