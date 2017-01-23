@@ -82,7 +82,7 @@ public class Ratonleon {
     
   }
   
-  //////////77FUNCIONES//////////7
+  ////////////FUNCIONES//////////7
   
   
 }
