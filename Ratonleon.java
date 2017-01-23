@@ -8,7 +8,7 @@ import java.util.Scanner; //importamos la clase Scanner con la que poder introuc
 
 public class Ratonleon {
   public static void main(String[] args) {
-    System.out.println("\033[37mBienvenido al programa de gestión de ratones, \"Ratonleon\".");
+    System.out.println("Bienvenido al programa de gestión de ratones, \"Ratonleon\".");
     System.out.println();
     
     int option = 0; //en ésta variable guardamos la opción escogida por el usuario.
@@ -152,14 +152,14 @@ public class Ratonleon {
       System.out.println();
       
       System.out.println();
-      System.out.println("\033[32mSe han añadido correctamente los nuevos valores.");
-      System.out.println("\033[37mPuede usted elegir la opción 1 del menú si desea visualiarlos.");
+      System.out.println("Se han añadido correctamente los nuevos valores.");
+      System.out.println("Puede usted elegir la opción 1 del menú si desea visualiarlos.");
       System.out.println();
       System.out.println();
     } else {
       System.out.println();
-      System.out.println("\033[31mLo siento, no hay espacio para nuevos datos.");
-      System.out.println("\033[37mPuede uster eleminar entradas para introducir nuevos datos.");
+      System.out.println("Lo siento, no hay espacio para nuevos datos.");
+      System.out.println("Puede uster eleminar entradas para introducir nuevos datos.");
       System.out.println();
       System.out.println();
     }
@@ -179,8 +179,18 @@ public class Ratonleon {
   public static void modificaDatos(String marca[], String tipo[], double precio[]) {
     Scanner f = new Scanner(System.in);
     
-    System.out.print("Por favor, introduzca el número de registro que desee modificar: ");
-    int indice = Integer.parseInt(f.nextLine());
+    int indice = 0;
+    boolean esVacio = false;
+    
+    while (!esVacio) {
+      System.out.print("Por favor, introduzca el número de registro que desee modificar: ");
+      indice = Integer.parseInt(f.nextLine());
+      if (marca[indice] == "vacío") {
+        System.out.println("\nEse registro está vacío, seleccione uno que ya contenga valores.");
+      } else {
+        esVacio = true;
+      }
+    }
     
     if (indice < marca.length) {
       System.out.print("Por favor introduzc la nueva marca: ");
@@ -194,14 +204,14 @@ public class Ratonleon {
       System.out.println();
       
       System.out.println();
-      System.out.println("\033[32mSe han añadido correctamente los nuevos valores.");
-      System.out.println("\033[37mPuede usted elegir la opción 1 del menú si desea visualiarlos.");
+      System.out.println("Se han añadido correctamente los nuevos valores.");
+      System.out.println("Puede usted elegir la opción 1 del menú si desea visualiarlos.");
       System.out.println();
       System.out.println();
     } else {
       System.out.println();
-      System.out.println("\033[31mLo siento, el registro introducido no existe.");
-      System.out.println("\033[37mVuelva a elegir la opción 2 en el menú.");
+      System.out.println("Lo siento, el registro introducido no existe.");
+      System.out.println("Vuelva a elegir la opción 2 en el menú.");
       System.out.println();
       System.out.println();
     }
@@ -228,13 +238,13 @@ public class Ratonleon {
       precio[indice - 1] = 0;
       
       System.out.println();
-      System.out.println("\033[32mSe han eliminado correctamente los datos señalados.\033[37m");
+      System.out.println("Se han eliminado correctamente los datos señalados.\033[37m");
       System.out.println();
       System.out.println();
     } else {
       System.out.println();
-      System.out.println("\033[31mLo siento, el registro introducido no existe.");
-      System.out.println("\033[37mVuelva a elegir la opción 2 en el menú.");
+      System.out.println("Lo siento, el registro introducido no existe.");
+      System.out.println("Vuelva a elegir la opción 2 en el menú.");
       System.out.println();
       System.out.println();
     }
