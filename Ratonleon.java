@@ -100,16 +100,19 @@ public class Ratonleon {
   */
   
   public static void visualizar(String marca[], String tipo[], double precio[]) {
-    System.out.println("┌─────────────────┬─────────────────┬────────────────┐");
-    System.out.println("│    Marca        │     Tipo        │      Precio    │");
-    System.out.println("├─────────────────┼─────────────────┼────────────────┤");
+    System.out.println("┌──────┌─────────────────┬─────────────────┬────────────────┐");
+    System.out.println("│Índice│      Marca      │       Tipo      │    Precio      │");
+    System.out.println("├──────┼─────────────────┼─────────────────┼────────────────┤");
     
     for (int i = 0; i < marca.length; i++) {
-      System.out.printf("│ %-15s │ %-15s │ %14.2f │", marca[i], tipo[i], precio[i]);
-      System.out.println();
+      if (marca[i] == "vacío") {
+      } else {
+        System.out.printf("│%6d│ %-15s │ %-15s │ %14.2f │", (i + 1), marca[i], tipo[i], precio[i]);
+        System.out.println();
+      }
     }
     
-    System.out.println("└─────────────────┴─────────────────┴────────────────┘");
+    System.out.println("└──────┴─────────────────┴─────────────────┴────────────────┘");
     System.out.println();
     System.out.println();
     
@@ -185,22 +188,41 @@ public class Ratonleon {
     while (!esVacio) {
       System.out.print("Por favor, introduzca el número de registro que desee modificar: ");
       indice = Integer.parseInt(f.nextLine());
-      if (marca[indice] == "vacío") {
+      if (marca[indice - 1] == "vacío") {
         System.out.println("\nEse registro está vacío, seleccione uno que ya contenga valores.");
       } else {
         esVacio = true;
       }
     }
     
+    String marcaIntroducida = "";
+    String tipoIntroducido = "";
+    String precioIntroducido = "";
+    
     if (indice < marca.length) {
-      System.out.print("Por favor introduzc la nueva marca: ");
-      marca[indice - 1] = f.nextLine();
+      System.out.println("Marca actual: " + marca[indice - 1]);
+      System.out.print("Por favor introduzc la nueva marca (pulse INTRO para no modificar datos): ");
+      marcaIntroducida = f.nextLine();
+      if (!marcaIntroducida.equals("")) {
+        marca[indice - 1] = marcaIntroducida;
+      }
+      
       System.out.println();
-      System.out.print("Por favor introduzca el nuevo tipo: ");
-      tipo[indice - 1] = f.nextLine();
+      System.out.println("Tipo actual: " + tipo[indice - 1]);
+      System.out.print("Por favor introduzca el nuevo tipo (pulse INTRO para no modificar datos): ");
+      tipoIntroducido = f.nextLine();
+      if (!tipoIntroducido.equals("")) {
+        tipo[indice - 1] = tipoIntroducido;
+      }
+      
       System.out.println();
-      System.out.print("Por favor introduzca el precio: ");
-      precio[indice - 1] = Double.parseDouble(f.nextLine());
+      System.out.println("Precio actual: " + precio[indice - 1]);
+      System.out.print("Por favor introduzca el precio (pulse INTRO para no modificar datos): ");
+      precioIntroducido = (f.nextLine());
+      if (!precioIntroducido.equals("")) {
+        precio[indice - 1] = Double.parseDouble(precioIntroducido);
+      }
+      
       System.out.println();
       
       System.out.println();
