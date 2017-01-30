@@ -54,6 +54,7 @@ public class Ratonleon {
       while (!opcionCorrecta) {
         System.out.print("Opción: ");
         option = Integer.parseInt(n.nextLine());
+        System.out.println();
         
         switch (option) {
           case 1:
@@ -194,6 +195,7 @@ public class Ratonleon {
         esVacio = true;
       }
     }
+    System.out.println();
     
     String marcaIntroducida = "";
     String tipoIntroducido = "";
