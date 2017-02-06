@@ -101,7 +101,7 @@ public class Ratonleon {
   */
   
   public static void visualizar(String marca[], String tipo[], double precio[]) {
-    System.out.println("┌──────┌─────────────────┬─────────────────┬────────────────┐");
+    System.out.println("┌──────┬─────────────────┬─────────────────┬────────────────┐");
     System.out.println("│Índice│      Marca      │       Tipo      │    Precio      │");
     System.out.println("├──────┼─────────────────┼─────────────────┼────────────────┤");
     
